@@ -1,1 +1,0 @@
-loadstring(game:HttpGet("https://github.com/gamblelord/Odetari-Moveset/blob/main/Odetari-moveset"))()
