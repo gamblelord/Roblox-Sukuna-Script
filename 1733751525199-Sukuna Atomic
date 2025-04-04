@@ -1,1 +1,43 @@
 loadstring(game:HttpGet("https://github.com/aggiealledge/obfuscated-scripts/raw/refs/heads/main/sukuna"))()
+local ToolName = "Ryoiki Tenkai: Fukuma Mizushi"
+local Animation = 15507137974
+
+local t = Instance.new("Tool")
+t.Name = ToolName
+t.RequiresHandle = false
+t.CanBeDropped = false
+t.Parent = game.Players.LocalPlayer.Backpack
+t.Activated:Connect(function()local ModelId = 15436321661
+
+local MoveRight = 0
+local MoveLeft = 0
+local MoveUp = 0
+local MoveDown = 0
+local MoveBack = 5
+local MoveForward = 0
+
+-- don't change anything here unless you know
+local d = game:GetObjects("rbxassetid://" .. ModelId)[1]
+if d:IsA("Part") then
+d.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+d.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+elseif d:IsA("Model") then
+if not d.PrimaryPart then
+local p = Instance.new("Part")
+p.Transparency = 1
+p.Anchored = true
+p.CanCollide = false
+p.Parent = d
+d.Parent = workspace
+d.PrimaryPart = p
+d:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(MoveRight - MoveLeft, MoveUp - MoveDown, MoveBack - MoveForward))
+else
+d.Parent = workspace
+d:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(MoveRight - MoveLeft, MoveUp - MoveDown, MoveBack - MoveForward))
+end
+end
+local a = Instance.new("Animation")
+a.AnimationId = "rbxassetid://" .. Animation
+local p = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(a)
+p:Play()
+end)
