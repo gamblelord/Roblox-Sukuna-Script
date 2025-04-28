@@ -153,17 +153,279 @@ end)
 
 -- Handlers for each m1s, the ultimate anim, and moves (if it doesnt have handlers, it would be a blank custom moveset script with no vfx, no other stuff other than custom animations)
 local handlers = {
-    m1 = function() end,
-    m2 = function() end,
-    m3 = function() end,
-    m4 = function() end,
+    m1 = function(tr)
+local assetId = 11182344533 -- Fire asset ID
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+local success, result = pcall(function()
+    return game:GetObjects("rbxassetid://" .. assetId)
+end)
+
+if success and #result > 0 then
+    local asset = result[1]
+    asset.Parent = workspace
+
+    local partToAttach
+
+    -- Check if the asset is a Model or a Part
+    if asset:IsA("Model") then
+        if not asset.PrimaryPart then
+            asset.PrimaryPart = asset:FindFirstChildWhichIsA("BasePart")
+            if not asset.PrimaryPart then
+                warn("No PrimaryPart found in model.")
+                return
+            end
+        end
+        partToAttach = asset.PrimaryPart
+        asset:SetPrimaryPartCFrame(hrp.CFrame)
+    elseif asset:IsA("BasePart") then
+        partToAttach = asset
+        asset.CFrame = hrp.CFrame
+    else
+        warn("Loaded asset is not a Model or Part.")
+        return
+    end
+
+    -- IMPORTANT: Unanchor the fire part
+    partToAttach.Anchored = false
+
+    -- Weld the fire to the player
+    local weld = Instance.new("WeldConstraint")
+    weld.Part0 = partToAttach
+    weld.Part1 = hrp
+    weld.Parent = partToAttach
+
+    print("Fire summoned, attached to player, and not anchored.")
+    
+    -- Destroy the asset after 1 second
+    task.wait(1)
+    asset:Destroy()
+    print("Asset destroyed after 1 second.")
+else
+    warn("Failed to load fire asset.")
+end
+end,
+    m2 = function(tr)
+local assetId = 11182344533 -- Fire asset ID
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+local success, result = pcall(function()
+    return game:GetObjects("rbxassetid://" .. assetId)
+end)
+
+if success and #result > 0 then
+    local asset = result[1]
+    asset.Parent = workspace
+
+    local partToAttach
+
+    -- Check if the asset is a Model or a Part
+    if asset:IsA("Model") then
+        if not asset.PrimaryPart then
+            asset.PrimaryPart = asset:FindFirstChildWhichIsA("BasePart")
+            if not asset.PrimaryPart then
+                warn("No PrimaryPart found in model.")
+                return
+            end
+        end
+        partToAttach = asset.PrimaryPart
+        asset:SetPrimaryPartCFrame(hrp.CFrame)
+    elseif asset:IsA("BasePart") then
+        partToAttach = asset
+        asset.CFrame = hrp.CFrame
+    else
+        warn("Loaded asset is not a Model or Part.")
+        return
+    end
+
+    -- IMPORTANT: Unanchor the fire part
+    partToAttach.Anchored = false
+
+    -- Weld the fire to the player
+    local weld = Instance.new("WeldConstraint")
+    weld.Part0 = partToAttach
+    weld.Part1 = hrp
+    weld.Parent = partToAttach
+
+    print("Fire summoned, attached to player, and not anchored.")
+    
+    -- Destroy the asset after 1 second
+    task.wait(1)
+    asset:Destroy()
+    print("Asset destroyed after 1 second.")
+else
+    warn("Failed to load fire asset.")
+end
+end,
+    m3 = function(tr)
+local assetId = 11182344533 -- Fire asset ID
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+local success, result = pcall(function()
+    return game:GetObjects("rbxassetid://" .. assetId)
+end)
+
+if success and #result > 0 then
+    local asset = result[1]
+    asset.Parent = workspace
+
+    local partToAttach
+
+    -- Check if the asset is a Model or a Part
+    if asset:IsA("Model") then
+        if not asset.PrimaryPart then
+            asset.PrimaryPart = asset:FindFirstChildWhichIsA("BasePart")
+            if not asset.PrimaryPart then
+                warn("No PrimaryPart found in model.")
+                return
+            end
+        end
+        partToAttach = asset.PrimaryPart
+        asset:SetPrimaryPartCFrame(hrp.CFrame)
+    elseif asset:IsA("BasePart") then
+        partToAttach = asset
+        asset.CFrame = hrp.CFrame
+    else
+        warn("Loaded asset is not a Model or Part.")
+        return
+    end
+
+    -- IMPORTANT: Unanchor the fire part
+    partToAttach.Anchored = false
+
+    -- Weld the fire to the player
+    local weld = Instance.new("WeldConstraint")
+    weld.Part0 = partToAttach
+    weld.Part1 = hrp
+    weld.Parent = partToAttach
+
+    print("Fire summoned, attached to player, and not anchored.")
+    
+    -- Destroy the asset after 1 second
+    task.wait(1)
+    asset:Destroy()
+    print("Asset destroyed after 1 second.")
+else
+    warn("Failed to load fire asset.")
+end
+end,
+    m4 = function(tr)
+local assetId = 11182344533 -- Fire asset ID
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+local success, result = pcall(function()
+    return game:GetObjects("rbxassetid://" .. assetId)
+end)
+
+if success and #result > 0 then
+    local asset = result[1]
+    asset.Parent = workspace
+
+    local partToAttach
+
+    -- Check if the asset is a Model or a Part
+    if asset:IsA("Model") then
+        if not asset.PrimaryPart then
+            asset.PrimaryPart = asset:FindFirstChildWhichIsA("BasePart")
+            if not asset.PrimaryPart then
+                warn("No PrimaryPart found in model.")
+                return
+            end
+        end
+        partToAttach = asset.PrimaryPart
+        asset:SetPrimaryPartCFrame(hrp.CFrame)
+    elseif asset:IsA("BasePart") then
+        partToAttach = asset
+        asset.CFrame = hrp.CFrame
+    else
+        warn("Loaded asset is not a Model or Part.")
+        return
+    end
+
+    -- IMPORTANT: Unanchor the fire part
+    partToAttach.Anchored = false
+
+    -- Weld the fire to the player
+    local weld = Instance.new("WeldConstraint")
+    weld.Part0 = partToAttach
+    weld.Part1 = hrp
+    weld.Parent = partToAttach
+
+    print("Fire summoned, attached to player, and not anchored.")
+    
+    -- Destroy the asset after 1 second
+    task.wait(1)
+    asset:Destroy()
+    print("Asset destroyed after 1 second.")
+else
+    warn("Failed to load fire asset.")
+end
+end,
     wc = function() end,
     fdash = function() end,
     bdash = function() end,
     ldash = function() end,
     rdash = function() end,
 
-    awk = function()
+    awk = function(tr)
+    local assetId = "rbxassetid://9469043724"
+local model = game:GetObjects(assetId)[1]
+if not model then
+	warn("Model failed to load.")
+	return
+end
+
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local part = character:FindFirstChild("Right Arm") -- R6: Right Arm
+if not part then
+	warn("Right Arm not found.")
+	return
+end
+
+if not model.PrimaryPart then
+	local base = model:FindFirstChildWhichIsA("BasePart", true)
+	if base then
+		model.PrimaryPart = base
+	else
+		warn("Model has no PrimaryPart.")
+		return
+	end
+end
+
+-- Offset for holding in hand (adjust if needed)
+local offset = CFrame.new(0, -1, 0) * CFrame.Angles(math.rad(90), 0, 0)
+
+model:SetPrimaryPartCFrame(part.CFrame * offset)
+model.Parent = character
+model.PrimaryPart.Anchored = false
+
+-- Weld the model to the hand and disable collisions
+for _, p in ipairs(model:GetDescendants()) do
+	if p:IsA("BasePart") then
+		p.CanCollide = false
+		
+		local weld = Instance.new("Weld")
+		weld.Part0 = part
+		weld.Part1 = p
+		weld.C0 = part.CFrame:inverse() * p.CFrame
+		weld.Parent = part
+		
+		p.Anchored = false
+	end
+end
     end,
 
     move1 = function()
@@ -172,10 +434,109 @@ local handlers = {
     move2 = function()
     end,
 
-    move3 = function()
+    move3 = function(tr)
+task.wait(1)
+local assetId = 77398613189051 -- Your model's asset ID
+
+-- Get the local player and character
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+-- Load the slash model
+local success, result = pcall(function()
+    return game:GetObjects("rbxassetid://" .. assetId)
+end)
+
+if success and #result > 0 then
+    local slash = result[1]
+    slash.Parent = workspace
+
+    -- Ensure the model has a PrimaryPart
+    if not slash.PrimaryPart then
+        slash.PrimaryPart = slash:FindFirstChildWhichIsA("BasePart")
+        if not slash.PrimaryPart then
+            warn("No PrimaryPart found in model.")
+            return
+        end
+    end
+
+    -- Spawn 5 studs in front of the player
+    local initialPosition = hrp.CFrame + hrp.CFrame.LookVector * 5
+    slash:SetPrimaryPartCFrame(initialPosition)
+
+    -- Calculate final position (flashing forward)
+    local finalPosition = slash.PrimaryPart.Position + (hrp.CFrame.LookVector * 20)
+
+    -- Flash forward using Tween
+    local TweenService = game:GetService("TweenService")
+    local tweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local tween = TweenService:Create(slash.PrimaryPart, tweenInfo, {Position = finalPosition})
+
+    tween:Play()
+
+    -- After slash lands, leave it for 5 seconds then remove
+    tween.Completed:Connect(function()
+        wait(5)
+        slash:Destroy()
+    end)
+
+    print("Slash summoned and will disappear in 5 seconds.")
+else
+    warn("Failed to load slash asset.")
+end
     end,
 
-    move4 = function()
+    move4 = function(tr)
+local assetId = 77398613189051 -- Your model's asset ID
+
+-- Get the local player and character
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+-- Load the slash model
+local success, result = pcall(function()
+    return game:GetObjects("rbxassetid://" .. assetId)
+end)
+
+if success and #result > 0 then
+    local slash = result[1]
+    slash.Parent = workspace
+
+    -- Ensure the model has a PrimaryPart
+    if not slash.PrimaryPart then
+        slash.PrimaryPart = slash:FindFirstChildWhichIsA("BasePart")
+        if not slash.PrimaryPart then
+            warn("No PrimaryPart found in model.")
+            return
+        end
+    end
+
+    -- Spawn 5 studs in front of the player
+    local initialPosition = hrp.CFrame + hrp.CFrame.LookVector * 5
+    slash:SetPrimaryPartCFrame(initialPosition)
+
+    -- Calculate final position (flashing forward)
+    local finalPosition = slash.PrimaryPart.Position + (hrp.CFrame.LookVector * 20)
+
+    -- Flash forward using Tween
+    local TweenService = game:GetService("TweenService")
+    local tweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local tween = TweenService:Create(slash.PrimaryPart, tweenInfo, {Position = finalPosition})
+
+    tween:Play()
+
+    -- After slash lands, leave it for 5 seconds then remove
+    tween.Completed:Connect(function()
+        wait(5)
+        slash:Destroy()
+    end)
+
+    print("Slash summoned and will disappear in 5 seconds.")
+else
+    warn("Failed to load slash asset.")
+end
     end,
 
     amove1 = function()
@@ -194,9 +555,9 @@ local handlers = {
 -- Table of animation data for the animations
 local animDt = {
     move2 = { Speed = 2 },
-    move1 = { Speed = 1.5 },
+    move1 = { Speed = 1 },
     amove1 = { Speed = 1 },
-    amove3 = { Speed = 0.7 },
+    amove3 = { Speed = 0.3 },
 }
 
 local hum = char:FindFirstChildOfClass("Humanoid")
